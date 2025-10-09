@@ -1,10 +1,10 @@
-## What is the Splice-decoder?
+## What is the SpliceDecoder?
 <img width="2436" height="1359" alt="image" src="https://github.com/user-attachments/assets/6d2ba86c-181c-41da-aa0f-a6205cf87509" />
 
 * Splice decoder provides functional annotation for your differential splicing events (DSEs)
 * The functional annotation contains NMD probability, alterations in functional domains (such as DNA binding, motif, regions, protein domain, and so on), CDS/UTR alterations, and effect score
 * You can use the effect score to prioritize your DSEs
-* Currently, Splice-decoder supports **hg38** and **mm10** genome
+* Currently, SpliceDecoder supports **hg38** and **mm10** genome
 
 ## Workflow overview
 <img width="1407" height="509" alt="image" src="https://github.com/user-attachments/assets/ef6b3535-982c-483c-b30f-d2f486092c4d" />
@@ -19,10 +19,10 @@
 <br>
 
 ## Quick start (conda is required)
-* Splice-decoder can be downloaded from https://github.com/hyeon9/Splice-decoder/
+* SpliceDecoder can be downloaded from https://github.com/hyeon9/SpliceDecoder/
 * Install SpliceDecoder by using the install script
   
-      cd ./Splice-decoder && bash install.sh
+      cd ./SpliceDecoder && bash install.sh
 
 * To perform a test run, you can use the provided toy_data
 * You can make a toy configuration file through an interactive way [You can find more details here](#guide-for-making-config-file)
@@ -62,29 +62,29 @@
       ? Specify your config file name (e.g. HGjob)
       > You just need to specify your config file
 
-      ? Enter the path of SpliceDecoder (e.g. /User/usr/Tool/Splice-decoder-main/)
+      ? Enter the path of SpliceDecoder (e.g. /User/usr/Tool/SpliceDecoder-main/)
       > You just need to specify the install path of SpliceDecoder
   
-      ? Enter your working directory (e.g. /User/usr/Tool/Splice-decoder-main/project1)
+      ? Enter your working directory (e.g. /User/usr/Tool/SpliceDecoder-main/project1)
       > You just need to specify your new working directory
   
-      ? Enter your rMATS output path (e.g. /User/usr/Tool/Splice-decoder-main/toy_data)
+      ? Enter your rMATS output path (e.g. /User/usr/Tool/SpliceDecoder-main/toy_data)
       > You just need to specify the rMATS output path
 
-      ? Enter your target gene list (e.g. /User/usr/Tool/Splice-decoder-main/target_genes.tsv)
+      ? Enter your target gene list (e.g. /User/usr/Tool/SpliceDecoder-main/target_genes.tsv)
       > You just need to provide interesting gene list, or enter 'all' if you don’t have one
       > SpliceDeocder will only consider there genes
 
-      ? Enter your GTF file that you used in rMATS with its full path (e.g. /User/usr/Tool/Splice-decoder-main/toy_data/toy.gtf or /User/usr/Tool/Splice-decoder-main/toy_data/*.gtf)
+      ? Enter your GTF file that you used in rMATS with its full path (e.g. /User/usr/Tool/SpliceDecoder-main/toy_data/toy.gtf or /User/usr/Tool/SpliceDecoder-main/toy_data/*.gtf)
       > You just need to specify the full path + GTFfile
 
       ? Do you want to calculate the effect score? [yes/no]
       > Simply type yes or no. If you type "yes", SpliceDecoder will ask TPM matrix or bamfile path to calculate the effect score
 
-      ? Enter your TPM matrix with full path (e.g. /User/usr/Tool/Splice-decoder-main/toy_data/tpm.tsv or N)
+      ? Enter your TPM matrix with full path (e.g. /User/usr/Tool/SpliceDecoder-main/toy_data/tpm.tsv or N)
       > Specify the full path to your TPM matrix, or enter 'N' if you don’t have one
   
-      ? Enter your bamlist which should contains bamfile with their full path in each line (e.g. /User/usr/Tool/Splice-decoder-main/toy_data/bam_list.txt or N)
+      ? Enter your bamlist which should contains bamfile with their full path in each line (e.g. /User/usr/Tool/SpliceDecoder-main/toy_data/bam_list.txt or N)
       > If you don’t have a TPM matrix, specify the full path to your BAM list file, or enter 'N'
   
       ? Enter a species of your data (e.g. human or mouse)
@@ -102,7 +102,7 @@
       ? Enter a |dPSI| cut off for your rMATS (float [0-1], default 0.1)
       > Specify rMATS FDR cut off
   
-      ? Enter a number of cpu in splice-decoder job (int [0-?])
+      ? Enter a number of cpu in spliceDecoder job (int [0-?])
       > Specify a number of cpu will be used in your job
 
 * You can reuse a pre-existing config file by copying it:
@@ -206,7 +206,7 @@
 ## Visualize your alternative splicing simulation
 * Based on your Main_table file, you can pcik ceratin DS event to visualize it using this code
 
-      conda activate splice-decoder
+      conda activate spliceDecoder
       python code/02-3_v3_Draw_consequence.py \
              --input ${working directory} \
              --splicing_event RI \
@@ -240,7 +240,7 @@
 * This function requires the `Effect_score.tsv`, Toy data is not eligible for this function
 * You can find the `${input}` and `${Main}` in your `.config` file
 
-      conda activate splice-decoder
+      conda activate spliceDecoder
       python code/Make_aa_fa.py \
              -i ${input} \
              -r human \
