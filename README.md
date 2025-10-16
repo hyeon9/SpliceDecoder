@@ -250,5 +250,5 @@
 
 * You can copy and paste the amino acid sequences to the Alphafold server (https://alphafoldserver.com) as input
 
-## If you use SpliceDecoder in your research, please cite this article
+## Please cite this article if you use SpliceDecoder in your research
 * https://doi.org/10.1101/2025.10.01.679902
