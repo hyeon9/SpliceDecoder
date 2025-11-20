@@ -285,7 +285,7 @@ if __name__ == "__main__":
     ## coreID = SID|ENST|event_type
 
     # import os
-    # OUT = args.input+"result/"
+    OUT = args.input+"result/"
     # if not os.path.exists(OUT):
     #     os.mkdir(OUT)
 
