@@ -98,4 +98,36 @@ dependencies:
   - mscorefonts
   - sed
   - r-nnet
-  - samtools
+  - asttokens
+  - comm
+  - Cython
+  - debugpy
+  - decorator
+  - exceptiongroup
+  - executing
+  - gseapy
+  - importlib_metadata
+  - ipykernel
+  - ipython
+  - jedi
+  - jupyter_client
+  - jupyter_core
+  - matplotlib-inline
+  - nest-asyncio
+  - parso
+  - pdf2image
+  - pexpect
+  - prompt_toolkit
+  - ptyprocess
+  - Pygments
+  - pysam
+  - pyzmq
+  - questionary
+  - tornado
+  - traitlets
+  - typing_extensions
+  - wcwidth
+  - pip:
+      - CPAT==3.0.5
+      - stack-data==0.6.3
+      - pure-eval==0.2.2
