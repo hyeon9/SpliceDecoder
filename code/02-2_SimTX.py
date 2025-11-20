@@ -287,7 +287,7 @@ if __name__ == "__main__":
     import os
     OUT = args.input+"result/"
     if not os.path.exists(OUT):
-        os.mkdir(OUT, exist_ok=True)
+        os.mkdir(OUT)
 
     integrity_indi = open(OUT+"{}_{}_Domain_alts.tsv".format(interesting_target, args.splicing_event), "w")
     nmd_check = open(OUT+"{}_{}_NMD.tsv".format(interesting_target, args.splicing_event), "w")
