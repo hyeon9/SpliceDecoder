@@ -284,10 +284,10 @@ if __name__ == "__main__":
     sim_cds["coreID"] = sim_cds[0]+"|"+sim_cds[1].str.replace("_w_event","")+"|"+sim_cds[2]
     ## coreID = SID|ENST|event_type
 
-    import os
-    OUT = args.input+"result/"
-    if not os.path.exists(OUT):
-        os.mkdir(OUT)
+    # import os
+    # OUT = args.input+"result/"
+    # if not os.path.exists(OUT):
+    #     os.mkdir(OUT)
 
     integrity_indi = open(OUT+"{}_{}_Domain_alts.tsv".format(interesting_target, args.splicing_event), "w")
     nmd_check = open(OUT+"{}_{}_NMD.tsv".format(interesting_target, args.splicing_event), "w")
