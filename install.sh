@@ -6,8 +6,7 @@ conda config --add channels conda-forge
 conda config --add channels bioconda
 conda config --remove channels defaults
 conda env create --name splice-decoder -f ${yml} &&
-conda activate splice-decoder &&
-pip install -r requirements_pip.txt
+conda activate splice-decoder
 unzip toy_data.zip
 
 ## Prepare data source
