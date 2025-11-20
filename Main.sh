@@ -147,6 +147,7 @@ case ${input_var} in
     Simulation)
 	echo "Running Splicing simulation"
 	## Splicing simulation
+	mkdir -p ${input}/result
 	ls ${input}/sim_bed/ | grep merged | cut -f 2 -d "_" | sed 's/[0-9]\+$//g' | sort -u | \
 	parallel --jobs 5 '
 	    echo "Start {} Simulation"
@@ -238,6 +239,7 @@ case ${input_var} in
  
         echo "Running Splicing simulation"
         ## Splicing simulation
+		mkdir -p ${input}/result
         ls ${input}/sim_bed/ | grep merged | cut -f 2 -d "_" | sed 's/[0-9]\+$//g' | sort -u | \
         parallel --jobs 5 '
             echo "Start {} Simulation"
