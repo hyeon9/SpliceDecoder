@@ -35,7 +35,6 @@ dependencies:
   - pthread-stubs
   - libwebp-base
   - curl
-  - pip
   - fontconfig
   - poppler
   - libgfortran5
