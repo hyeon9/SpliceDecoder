@@ -127,7 +127,4 @@ dependencies:
   - traitlets
   - typing_extensions
   - wcwidth
-  - pip:
-      - CPAT==3.0.5
-      - stack-data==0.6.3
-      - pure-eval==0.2.2
+  - CPAT==3.0.5
