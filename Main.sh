@@ -140,7 +140,7 @@ case ${input_var} in
     mkdir -p ${input}/sim_bed
     mkdir -p ${input}/get_Fasta
     mkdir -p ${input}/cpat
-	python ${code}02-1_ORF_mapping.py -i ${input} -t ${njobs} -cp ${cpat} -cpdb ${cpatdb} -b ${bedtools} -f ${genomefa} -p ${species}
+	python -W ignore ${code}02-1_ORF_mapping.py -i ${input} -t ${njobs} -cp ${cpat} -cpdb ${cpatdb} -b ${bedtools} -f ${genomefa} -p ${species}
 	echo "Finished ORF mapping"
 	;;
 
@@ -161,7 +161,7 @@ case ${input_var} in
 	then
 	    echo "Calculated effect score"
 		python ${code}03-2_overview_change_rate.py -i ${input}
-		python ${code}03-3_scoring_function.py -i ${input} -t ${tpm}
+		python -W ignore ${code}03-3_scoring_function.py -i ${input} -t ${tpm}
 		python ${code}Make_summary.py -i ${input}
 	    echo "Finished"
 	    if [ -f "${input}/result/Effect_score.tsv" ] && [ $(wc -l < ${input}/result/Effect_score.tsv) -ge 5 ]; then
@@ -233,7 +233,7 @@ case ${input_var} in
         mkdir -p ${input}/sim_bed
         mkdir -p ${input}/get_Fasta
         mkdir -p ${input}/cpat
-        python ${code}02-1_ORF_mapping.py -i ${input} -t ${njobs} -cp ${cpat} -cpdb ${cpatdb} -b ${bedtools} -f ${genomefa} -p ${species}
+        python -W ignore ${code}02-1_ORF_mapping.py -i ${input} -t ${njobs} -cp ${cpat} -cpdb ${cpatdb} -b ${bedtools} -f ${genomefa} -p ${species}
         echo "Finished ORF mapping"
 
  
@@ -251,7 +251,7 @@ case ${input_var} in
         then
 	        echo "Calculated effect score"
 	        python ${code}03-2_overview_change_rate.py -i ${input}
-	        python ${code}03-3_scoring_function.py -i ${input} -t ${tpm}
+	        python -W ignore ${code}03-3_scoring_function.py -i ${input} -t ${tpm}
 	        python ${code}Make_summary.py -i ${input}
 	        echo "Finished"
 
