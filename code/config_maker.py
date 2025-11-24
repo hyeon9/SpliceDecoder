@@ -30,7 +30,7 @@ if sys.argv[2] != "toy":
 			config['bam_list'] = "N"
 			config['tpm'] = "Y_own"
 	config['species'] = questionary.text("Enter a species of your data (e.g. human or mouse)").ask()
-	config['seq_type'] = questionary.text("Enter a sequencing type of your data (e.g., SR (short-read) or LR (long-read) )").ask()
+	config['seq_type'] = questionary.text("Enter a type of GTF (e.g., SR (GENCODE GTF) or LR (Custom GTF) )").ask()
 
 
 else:	# For toy data set
