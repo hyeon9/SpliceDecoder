@@ -36,12 +36,13 @@
       bash Main.sh all ${Your_toy.config}
 
 * If your test run with the toy data finishes successfully, [you will see the following output files](#outputs) (except for the Effect_score.tsv)
-* After confirming this, you can proceed with your own data
-* To do this, create a configuration file without the `toy` tag and run SpliceDecoder with it
+* To run with your own data, create a configuration file using the `Make_config.sh` or modifying the `example.config` and run SpliceDecoder with it
 
       cd code/
       bash Make_config.sh
       bash Main.sh all ${Your.config}
+      OR
+      vi example.config
 
 * If you use SLURM, use this command to submit your job
 
