@@ -90,8 +90,8 @@
   
       ? Enter a species of your data (e.g. human or mouse)
       > You just need to specify the species of your data
-  
-      ? Enter a sequencing type of your data (e.g. SR (short-read) or LR (long-read) )
+
+      ? Enter a type of GTF (e.g., SR (GENCODE GTF) or LR (Custom GTF) )
       > You just need to specify the sequencing method of your data
 
       ? Specify a NMD definition method (e.g., default (55rule) or advanced) )
