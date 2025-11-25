@@ -36,7 +36,7 @@
       bash Main.sh all ${Your_toy.config}
 
 * If your test run with the toy data finishes successfully, [you will see the following output files](#outputs) (except for the Effect_score.tsv)
-* To run with your own data, create a configuration file using the `Make_config.sh` or modifying the `example.config`
+* To run with your own data, create a configuration file using the `Make_config.sh` or modifying `example.config`
 
       cd code/
       bash Make_config.sh
