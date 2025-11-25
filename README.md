@@ -41,10 +41,13 @@
       cd code/
       bash Make_config.sh
       bash Main.sh all ${Your.config}
-      OR
-      vi example.config
 
-* If you use SLURM, use this command to submit your job
+      OR
+
+      vi example.config
+      mv example.config ${Your.config}
+
+* Then, use this command to submit your job if you are using SLURM
 
       sbatch Main.sh {Make_input | DS_mapping | ORF_mapping | Simulation | Scoring | all} ${Your.config}
 
