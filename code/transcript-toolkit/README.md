@@ -31,8 +31,8 @@
       ? Enter your data species (e.g. human or mouse)
       > You just need to specify the species of your data
 
-      ? Enter your data sequencing type? [LR (Long-read) or SR (Short-read)]
-      > You just need to specify the sequencing method of your data
+      ? Enter a type of GTF (e.g., SR (GENCODE GTF) or LR (Custom GTF) )
+      > You just need to specify the type of your GTF
 
       ? Enter a number of cpu in transcript-toolkit job (int [0-?])
       > Specify a number of cpu will be used in your job
