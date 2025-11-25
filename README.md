@@ -95,7 +95,7 @@
       > You just need to specify the species of your data
 
       ? Enter a type of GTF (e.g., SR (GENCODE GTF) or LR (Custom GTF) )
-      > You just need to specify the sequencing method of your data
+      > You just need to specify the type of your GTF
 
       ? Specify a NMD definition method (e.g., default (55rule) or advanced) )
       > You just need to select one either 'default' or 'advanced'
