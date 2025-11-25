@@ -105,7 +105,6 @@ dependencies:
   - decorator
   - exceptiongroup
   - executing
-  - gseapy
   - importlib_metadata
   - ipykernel
   - ipython
