@@ -1,4 +1,4 @@
-name: Test Install
+name: Test install & toy run
 
 # on: [push, pull_request]
 on: workflow_dispatch
