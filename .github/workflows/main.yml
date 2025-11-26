@@ -36,4 +36,5 @@ jobs:
       - name: Perform test run with toy data
         shell: bash -l {0}
         run: |
-          bash Main.sh all example.config
+          conda activate splice-decoder
+          bash SpliceDecoder/.github/workflows/test_Main.sh all example.config
