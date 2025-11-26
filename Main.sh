@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -J Run_SD
-#SBATCH -c 45
-#SBATCH --mem=60G
+#SBATCH -c 10
+#SBATCH --mem=40G
 #SBATCH -o ./%u-%x-%j
 #SBATCH -e ./%u-%x-%j.err
 #SBATCH --time=72:00:00
