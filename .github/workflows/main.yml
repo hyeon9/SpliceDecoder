@@ -32,3 +32,8 @@ jobs:
           which bedtools
           which cpat
           python -c "import Bio; print(Bio.__version__)"
+
+      - name: Perform test run with toy data
+        shell: bash -l {0}
+        run: |
+          bash Main.sh all example.config
