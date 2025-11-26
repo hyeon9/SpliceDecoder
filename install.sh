@@ -5,7 +5,7 @@ source "$(conda info --base)/etc/profile.d/conda.sh"
 conda config --add channels conda-forge
 conda config --add channels bioconda
 conda install -n base -c conda-forge mamba
-mamba env create --name splice-decoder -f ${yml}
+mamba env create --solver libmamba --name splice-decoder -f ${yml}
 conda activate splice-decoder
 unzip toy_data.zip
 
