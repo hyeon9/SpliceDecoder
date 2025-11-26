@@ -567,6 +567,10 @@ def Run(key, input_gene_name, *sub_splicing):
     test_list = query.iloc[:,0].unique()
     sid = test_list[0].split("|")[0]
     test_list = query[query["Gene symbol"] == input_gene_name]["ID"].unique()
+
+    if len(test_list) == 0:
+        print("\nPlease make sure your Gene symbol tab in the Main_table.tsv!!\n")
+        sys.exit(1)
     
     ################################ TEMP
     ## Remove Biding site in figures, it spends lots of space
@@ -621,11 +625,11 @@ def Run(key, input_gene_name, *sub_splicing):
                     ## Make an input (bed) for visualization
                     ref_bed, ref_domain, ref_dname = Make_query(ref, wo_pfam[wo_pfam[3]==n_domain[kinds_domain]])
                     sim_bed, sim_domain, sim_dname = Make_query(sim_tx, w_pfam[w_pfam[3]==n_domain[kinds_domain]])
-                    print(n_domain[kinds_domain])
-                    print(ref_bed)
-                    print(ref_domain)
-                    print(sim_bed)
-                    print(sim_domain)
+                    # print(n_domain[kinds_domain])
+                    # print(ref_bed)
+                    # print(ref_domain)
+                    # print(sim_bed)
+                    # print(sim_domain)
 
                     ## Check different exon block
                     if len(ref_bed) > 0:    # Markup changed regions
@@ -682,7 +686,7 @@ def Run(key, input_gene_name, *sub_splicing):
                     ###################################
                     ## Make an updated bed to draw skipped/included parts
                     ########
-                        print(event_pos_ref, event_pos_query)
+                        # print(event_pos_ref, event_pos_query)
                         space = np.abs(float(LID.split(";")[6])-float(LID.split(";")[7]))+1
                         if fig_input["event_type"].unique()[0] in ["EI","Alt_A3SS"]:
 
