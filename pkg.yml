@@ -6,6 +6,7 @@ dependencies:
   - bedtools
   - python=3.9
   - pip
+  - samtools
   - biopython
   - pysam
   - pybedtools
