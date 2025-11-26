@@ -48,7 +48,7 @@
       mv example.config ${Your.config}
 
 * Then, use this command to submit your job if you are using SLURM
-* You can specify #SBATCH -c 10 AND --mem=40G options
+* You can specify #SBATCH options such as -c 10 AND --mem=40G 
 
       sbatch Main.sh {Make_input | DS_mapping | ORF_mapping | Simulation | Scoring | all} ${Your.config}
 
