@@ -18,6 +18,7 @@ dependencies:
   - joblib
   - seaborn
   - matplotlib-inline
+  - pdf2image
   - pip:
       - stack-data==0.6.3
       - pure-eval==0.2.2
