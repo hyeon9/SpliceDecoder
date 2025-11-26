@@ -1,13 +1,4 @@
 #!/bin/bash
-#SBATCH -J Run_SD
-#SBATCH -c 10
-#SBATCH --mem=40G
-#SBATCH -o ./%u-%x-%j
-#SBATCH -e ./%u-%x-%j.err
-#SBATCH --time=72:00:00
-
-## Load conda
-
 
 input_var=$1
 case ${input_var} in
