@@ -37,4 +37,4 @@ jobs:
         shell: bash -l {0}
         run: |
           conda activate splice-decoder
-          bash SpliceDecoder/.github/workflows/test_Main.sh all example.config
+          bash ${GITHUB_WORKSPACE}/.github/workflows/test_Main.sh all example.config
