@@ -704,7 +704,14 @@ if __name__ == "__main__":
                     final_whole_doa_direction = "Frame loss"
                     nmd_diff = "Frame loss"
 
-                gene_symbol = str(tx_dict_file[tx_dict_file[0]==tx][2].unique()[0])
+                if len(tx_dict_file[2].unique()) > 1:
+                    gene_symbol = str(tx_dict_file[tx_dict_file[0]==tx][2].unique()[0])
+                elif len(tx_dict_file[1].unique()) > 1:    # If user's GTF doesn't have gene_symbol annotation ("LR")
+                    gene_symbol = str(tx_dict_file[tx_dict_file[0]==tx][1].unique()[0])
+                else:
+                    print("\nERROR: Check your tx_gene_dict file whether it has at least one gene annotation key\n")
+                    sys.exit(1)
+                    
                 main_output.write(longid+"\t"+
                                   gene_symbol+"\t"+
                                   tx+"\t"+
