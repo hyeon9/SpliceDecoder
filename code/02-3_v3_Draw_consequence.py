@@ -569,7 +569,7 @@ def Run(key, input_gene_name, *sub_splicing):
     test_list = query[query["Gene symbol"] == input_gene_name]["ID"].unique()
 
     if len(test_list) == 0:
-        print("\nPlease make sure your Gene symbol tab in the Main_table.tsv!!\n")
+        print("\nERROR: Please make sure your Gene symbol tab in the Main_table.tsv!!\n")
         sys.exit(1)
     
     ################################ TEMP
