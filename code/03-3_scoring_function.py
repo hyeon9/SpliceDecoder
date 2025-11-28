@@ -149,7 +149,15 @@ def Add_TU(tpm, query_df):
                               sep="\t",
                               header=None,
                               index_col=0)
-        gene_tx = gene_tx[gene_tx[2].isin(query_df["Gene symbol"].unique())].copy()
+        if len(gene_tx[2].unique()) > 1:
+            gene_tx = gene_tx[gene_tx[2].isin(query_df["Gene symbol"].unique())].copy()
+        elif len(gene_tx[1].unique()) > 1:
+            gene_tx = gene_tx[gene_tx[1].isin(query_df["Gene symbol"].unique())].copy()
+            gene_tx.columns = [2,1] # In the subsequent steps, all script focus on col 2
+        else:
+            print("\nERROR: Check your tx_gene_dict file whether it has at least one gene annotation key\n")
+            sys.exit(1)
+            
         tu_input = pd.merge(tpm, gene_tx, 
                             left_index=True, 
                             right_index=True).sort_values(by=2).reset_index()
