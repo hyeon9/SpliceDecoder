@@ -693,7 +693,14 @@ if __name__ == "__main__":
                             else:
                                 final_whole_doa_direction = whole_doa_direction_dict[n][0]	# LoD or GoD
                         else:
-                            final_whole_doa_direction = "no_changes"
+                            if AA_diff != 0:
+                                dom_change_ratio = 0    # Correction since it was defined as 1 in line 351
+                                final_whole_doa_direction = "CDS_alt"
+                            elif AA_diff == 0 and (utr5_diff != 0 or utr3_diff != 0):
+                                dom_change_ratio = 0    # Correction since it was defined as 1 in line 351
+                                final_whole_doa_direction = "UTR_alt"
+                            else:
+                                final_whole_doa_direction = "no_changes"
 
                 else:   # No matched start and stop in simTX
                     utr5_diff = "Frame loss"
