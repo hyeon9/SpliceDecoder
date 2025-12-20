@@ -575,11 +575,11 @@ def Run(key, input_gene_name, *sub_splicing):
     ################################ TEMP
     ## Remove Biding site in figures, it spends lots of space
     ## Capture target domains which are contained in target transcript
-    w_pfam = w_pfam[(w_pfam[14].isin(query["SID"])) &
+    w_pfam = w_pfam[(w_pfam[14].isin(query["SID"].unique())) &
                     (w_pfam[11]==sub_splicing[1]) &
                     (w_pfam[13]==sub_splicing[0]) &
                     (w_pfam[4]!="binding")]
-    wo_pfam = wo_pfam[(wo_pfam[14].isin(query["SID"])) &
+    wo_pfam = wo_pfam[(wo_pfam[14].isin(query["SID"].unique())) &
                       (wo_pfam[11]==sub_splicing[1]) &
                       (wo_pfam[13]==sub_splicing[0]) &
                       (wo_pfam[4]!="binding")]
