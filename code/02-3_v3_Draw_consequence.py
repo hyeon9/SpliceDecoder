@@ -565,7 +565,7 @@ def Run(key, input_gene_name, *sub_splicing):
 
 
     test_list = query.iloc[:,0].unique()
-    sid = test_list[0].split("|")[0]
+    # sid = test_list[0].split("|")[0]
     test_list = query[query["Gene symbol"] == input_gene_name]["ID"].unique()
 
     if len(test_list) == 0:
@@ -575,11 +575,11 @@ def Run(key, input_gene_name, *sub_splicing):
     ################################ TEMP
     ## Remove Biding site in figures, it spends lots of space
     ## Capture target domains which are contained in target transcript
-    w_pfam = w_pfam[(w_pfam[14]==sid) &
+    w_pfam = w_pfam[(w_pfam[14].isin(query["SID"])) &
                     (w_pfam[11]==sub_splicing[1]) &
                     (w_pfam[13]==sub_splicing[0]) &
                     (w_pfam[4]!="binding")]
-    wo_pfam = wo_pfam[(wo_pfam[14]==sid) &
+    wo_pfam = wo_pfam[(wo_pfam[14].isin(query["SID"])) &
                       (wo_pfam[11]==sub_splicing[1]) &
                       (wo_pfam[13]==sub_splicing[0]) &
                       (wo_pfam[4]!="binding")]
@@ -623,8 +623,8 @@ def Run(key, input_gene_name, *sub_splicing):
                     eventid = fig_input["event_type"].values[0]
 
                     ## Make an input (bed) for visualization
-                    ref_bed, ref_domain, ref_dname = Make_query(ref, wo_pfam[wo_pfam[3]==n_domain[kinds_domain]])
-                    sim_bed, sim_domain, sim_dname = Make_query(sim_tx, w_pfam[w_pfam[3]==n_domain[kinds_domain]])
+                    ref_bed, ref_domain, ref_dname = Make_query(ref, wo_pfam[(wo_pfam[3]==n_domain[kinds_domain]) & (wo_pfam[14].isin(sub["SID"].unique()))])
+                    sim_bed, sim_domain, sim_dname = Make_query(sim_tx, w_pfam[(w_pfam[3]==n_domain[kinds_domain]) & (w_pfam[14].isin(sub["SID"].unique()))])
                     # print(n_domain[kinds_domain])
                     # print(ref_bed)
                     # print(ref_domain)
