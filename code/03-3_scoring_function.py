@@ -225,7 +225,7 @@ def Multi_splicing_prop(score_df, stype, mode):
                         final_df = ind_SP
                     else:
                         final_df = pd.concat([final_df, ind_SP]) # Contains all case
-                k += 1
+                    k += 1
 
         else:   # No TPM isoform
             pass
