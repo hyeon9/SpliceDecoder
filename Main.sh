@@ -14,11 +14,12 @@ input_var=$1
 case ${input_var} in
     help|-h|--help)
 	echo "#################################################"
-        echo "You should specify your job: Make_input / DS_mapping / ORF_mapping / Simulation / Scoring / all AND \${Your_config}"
+	echo "SpliceDecoder v1.2"
+    echo "You should specify your job: Make_input / DS_mapping / ORF_mapping / Simulation / Scoring / all AND \${Your_config}"
 	echo
-        echo "[Usage example]"
+    echo "[Usage example]"
 	echo "bash $0 Make_input \${Your_config}"
-        echo "#################################################"
+    echo "#################################################"
         exit 1
         ;;
 esac
