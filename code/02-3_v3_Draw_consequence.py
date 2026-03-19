@@ -303,7 +303,7 @@ def Run(key, input_gene_name, *sub_splicing):
                                       "GoD":"LoD",
                                       "CDS_alt":"CDS_alt",
                                       "UTR_alt":"UTR_alt",
-                                      "no_change":"No Changes"} # BUG fix 25.01.27
+                                      "no_changes":"No Changes"} # BUG fix 25.01.27
                         if exon_color != "#73ABFF": # Ref-TX
                             canvas.text(.96,.2,f"{value_dict[doa_types]}",
                                         fontsize=10, zorder=5,
