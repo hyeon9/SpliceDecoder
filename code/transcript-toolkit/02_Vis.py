@@ -33,11 +33,7 @@ def parse_args(cmd_args=None, namespace=None):
                         help='Canonical_transcript ID',
                         required=True,
                         type=str)
-    parser.add_argument('--query_list', '-q', 
-                        help='Your query_list file with its full path', 
-                        required=True,
-                        type=str)
-
+    
     ## Optional
     parser.add_argument('--remove_info', '-ri', nargs='*',
                         help='DO NOT DEPIC these functional category e.g., coiled chain', 
@@ -67,7 +63,7 @@ args.input = args.input+"/"
 #     print(args)
 ################################################
 # %%
-def Run(key, input_gene_name):
+def Run(key):
     
     def Load_data(key, remove_info):
         """ Load information data
@@ -79,7 +75,7 @@ def Run(key, input_gene_name):
             _type_: _description_
         """
         
-        query_list = pd.read_csv(args.query_list,
+        query_list = pd.read_csv(args.input+"query_list.txt",
                                  sep="\t")
         query_list.columns = ["Major","query"]
         query_list = query_list[query_list["Major"]==key]   # Fix bug
@@ -547,5 +543,5 @@ def Run(key, input_gene_name):
         else:
             print("No mapped functional regions")
 
-Run(args.cano_tx, args.query_list)
+Run(args.cano_tx)
 # %%
