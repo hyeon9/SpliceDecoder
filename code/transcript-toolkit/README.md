@@ -72,7 +72,7 @@
 * Based on your Main_output file, you can pick ceratin comparison to visualize it using this code
 
       conda activate splice-decoder
-      python code/transcript-toolkit/02_Vis.py --input ${working directory} --cano_tx ${Canonical_transcript} --query_list ${Your_query_list}
+      python code/transcript-toolkit/02_Vis.py --input ${working directory} --cano_tx ${Canonical_transcript}
 
 ## Create a 3D Protein structure based on simulated 
 * You can use `Make_aa_fa.py` to extract amino acid sequences from your interesting targets
