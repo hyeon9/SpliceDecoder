@@ -438,7 +438,7 @@ def Run(key, input_gene_name):
                                         "GoD":"LoD",
                                         "UTR_alt":"",
                                         "CDS_alt":"",
-                                        "no_change":"No Changes"} # BUG fix 25.01.27
+                                        "no_changes":"No Changes"} # BUG fix 25.01.27
                             ref_axs.text(.96,.2,f"{value_dict[doa_types]}",
                                         fontsize=10, zorder=5,
                                         transform=ref_axs.transAxes)
