@@ -8,7 +8,7 @@
 
 ## Load conda
 source "$(conda info --base)/etc/profile.d/conda.sh"
-conda activate TX-comp
+conda activate splice-decoder
 
 config=$1
 source ${config} 
