@@ -26,5 +26,5 @@ with open(f"{config['Main']}{output_prefix}.config", "w") as f:
     for key, value in config.items():
         f.write(f'{key}="{value}"\n')
 
-print(f"{config['Main']}{output_prefix}.config has been created! \nYou can use `bash Main.sh $Function {output_prefix}.config` or `sbatch Main.sh $Function {output_prefix}.config` in your terminal.")
-print(f"You can get more information for the Function variable of Main.sh by using bash `Main.sh -h`")
+print(f"{config['Main']}{output_prefix}.config has been created! \nYou can use `bash transcript-toolkit.sh $Function {output_prefix}.config` or `sbatch transcript-toolkit.sh $Function {output_prefix}.config` in your terminal.")
+print(f"You can get more information for the Function variable of transcript-toolkit.sh by using bash `transcript-toolkit.sh -h`")
