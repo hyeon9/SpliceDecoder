@@ -80,6 +80,6 @@
 * You can find the `${input}` and `${Main}` in your `.config` file
 
       conda activate splice-decoder
-      python code/transcript-toolkit/Make_aa.py -i ${input} -r human -rt ${ref_ENST}.6 -qt ${query_ENST} -d ${Main}
+      python code/transcript-toolkit/Make_aa.py -i ${input} -r human -rt ${ref_ENST} -qt ${query_ENST} -d ${Main}
 
 * You can copy and paste the amino acid sequences into the Alphafold server (https://alphafoldserver.com) as input
