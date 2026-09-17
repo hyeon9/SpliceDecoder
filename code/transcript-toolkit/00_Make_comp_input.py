@@ -46,7 +46,7 @@ Description
     parser.add_argument('--query_list', '-q', 
                         required=True,
                         type=str)
-    
+        
     ## Optional
     parser.add_argument("--threads", "-t", help="number of threads to use, default: 9", 
                         type=int,
@@ -61,11 +61,10 @@ args, parser = parse_args(sys.argv[1:])
 args.species = args.species.capitalize()
 exon_dict = pd.read_csv(args.input+"exon_only.final.gtf",
                        sep="\t")    # From Final/00-2_processing_gtf.py
-query_list = pd.read_csv(args.query_list,
-                         sep="\t")
-query_list.columns = ["Major","query"]
-target_list = query_list["Major"].tolist() + query_list["query"].tolist()
-exon_dict = exon_dict[exon_dict["ENSTID"].isin(target_list)]
+target_list = pd.read_csv(args.query_list,
+                          sep="\t",
+                          header=None)
+exon_dict = exon_dict[exon_dict["ENSTID"].isin(target_list[0])]
 
 cmd = "rm -r " + args.input + "cpat/"
 subprocess.call(cmd, shell=True, stdout=subprocess.DEVNULL)
@@ -185,11 +184,11 @@ def Run(tx_list, key):
                     pass
                 else:
                     cpat_output.write(tx+"\t"+
-                                    line.split("\t")[1]+"\t"+
-                                    line.split("\t")[4]+"\t"+
-                                    line.split("\t")[5]+"\t"+
-                                    line.split("\t")[6]+"\t"+
-                                    line.split("\t")[9])   # 1: tx length, 4,5: ORF start/end, 6: ORF length, 9: P coding
+                                      line.split("\t")[1]+"\t"+
+                                      line.split("\t")[4]+"\t"+
+                                      line.split("\t")[5]+"\t"+
+                                      line.split("\t")[6]+"\t"+
+                                      line.split("\t")[9])   # 1: tx length, 4,5: ORF start/end, 6: ORF length, 9: P coding
             cpat_output.close()            
     
     for tx in tx_list["ENSTID"].unique():    
