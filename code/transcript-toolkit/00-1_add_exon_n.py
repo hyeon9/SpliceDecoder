@@ -24,13 +24,6 @@ Description
                         required=True,
                         type=str)
     
-    ## Optional
-    parser.add_argument('--tx_dict', '-g', 
-                        help='Make transcript-gene (tx_gene_dict) file, default: Y',
-                        default="Y", 
-                        type=str)
-
-
     args = parser.parse_args(cmd_args, namespace)
     
     return args, parse_args
@@ -103,31 +96,6 @@ def Add_en(DIR,seq_type):
         subprocess.call(cmd, shell=True, stdout=subprocess.DEVNULL)
 
 # %%
-def Make_gene_dict(DIR):
-    import os
-    files = [f for f in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, f)) if f.startswith("main") if f.endswith(".gtf") ]
-    if len(files) == 0:
-        print("Check your main.gtf")
-    else:
-        f = open(DIR+"{}".format(files[0]))
-        o = open(DIR+"tx_gene_dict", "w")
-        for line in f:
-            read_line = line.strip().split("\t")
-            if not line.startswith("#"):
-                if read_line[2] == "transcript":
-                    if "transcript_id" in read_line[8].split(" "):
-                        tx = read_line[8].split(" ")[read_line[8].split(" ").index("transcript_id")+1].split("\"")[1]
-                    if "gene_name" in read_line[8].split(" "):
-                        gene = read_line[8].split(" ")[read_line[8].split(" ").index("gene_name")+1].split("\"")[1]
-                    elif "gene_id" in read_line[8].split(" "):
-                        gene = read_line[8].split(" ")[read_line[8].split(" ").index("gene_id")+1].split("\"")[1]
-                    else:
-                        gene = ""
-                    o.write(tx+"\t"+gene+"\n")
-        f.close()
-        o.close()
-
-
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Run with -h!!")
@@ -136,5 +104,3 @@ if __name__ == "__main__":
     if not args.input.endswith("/"):
         args.input = args.input+"/"
     Add_en(args.input, args.seq)
-    if args.tx_dict == "Y":
-        Make_gene_dict(args.input)
