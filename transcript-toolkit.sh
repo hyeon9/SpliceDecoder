@@ -24,7 +24,7 @@ case ${input_var} in
         ;;
 esac
 
-config=$1
+config=$2
 source ${config} 
 
 case ${input_var} in
@@ -100,6 +100,10 @@ case ${input_var} in
 		## Make a result table
 		python ${code}/01-1_Just_annotation.py -i ${input} -q ${query_list} -p ${Main}${config} -c ${code} -s ${species}
 
+		;;
+
 	Scoring)
-		comp_list=$2
+		comp_list=$3
 		python ${code}/01_comp_domain.py -i ${input} -q ${comp_list} -p ${Main}${config} -c ${code}
+	    ;;
+esac
