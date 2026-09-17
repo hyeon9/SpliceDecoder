@@ -6,9 +6,15 @@
       bash Make_config.sh
 
 * If you successfully created `Your.config`, now you can run transcript-toolkit
-* The steps are intended to be executed in order, so it is recommended to use `all`
+* transcript-toolkit provides two different functions `Annotation` and `Comparison`
+* `Annotation` function can make an annotated GTF file
 
-      bash transcript-toolkit.sh ${Your.config}
+      bash transcript-toolkit.sh Annotation ${Your.config}
+
+* `Comparison` function can perform a comparative analysis based on your `comp.tsv`
+* `comp.tsv` is a TSV file containing the transcript pairs you want to compare. The transcript IDs for each pair should be provided in the first and second columns.
+
+      bash transcript-toolkit.sh Comparison ${Your.config} ${Your_comp.tsv}
 
 ## Guide for making config file
 * Make_config.sh will ask..
