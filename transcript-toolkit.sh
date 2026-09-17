@@ -98,7 +98,7 @@ case ${input_var} in
 		python ${code}00_Make_annot_input.py -i ${input} -t ${njobs} -cp ${cpat} -cpdb ${cpatdb} -b ${bedtools} -f ${genomefa} -p ${species} -q ${query_list}
 
 		## Make a result table
-		python ${code}/01-1_Just_annotation.py -i ${input} -q ${query_list} -p ${Main}${config} -c ${code} -s ${species}
+		python ${code}/01-1_annotation.py -i ${input} -q ${query_list} -p ${Main}${config} -c ${code} -s ${species}
 
 		;;
 
