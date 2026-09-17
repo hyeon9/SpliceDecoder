@@ -102,7 +102,7 @@ case ${input_var} in
 
 		;;
 
-	Scoring)
+	Comparison)
 		comp_list=$3
 		python ${code}/01_comp_domain.py -i ${input} -q ${comp_list} -p ${Main}${config} -c ${code}
 	    ;;
