@@ -33,7 +33,10 @@ def parse_args(cmd_args=None, namespace=None):
                         help='Canonical_transcript ID',
                         required=True,
                         type=str)
-    
+    parser.add_argument('--comp_tsv', '-t', 
+                        help='Your target_list',
+                        required=True,
+                        type=str)
     ## Optional
     parser.add_argument('--remove_info', '-ri', nargs='*',
                         help='DO NOT DEPIC these functional category e.g., coiled chain', 
@@ -52,9 +55,9 @@ args.input = args.input+"/"
 ################################################ TEST RUN
 # if __name__ == "__main__":
 #     test_args = [
-#         "--input", "/home/kangh/lab-server/KAIST/Tx_seq_compare",
-#         "--cano_tx", "ENST00000286186.11",
-#         "--query_list", "/home/kangh/lab-server/KAIST/Tx_seq_compare/Seq_comparison_template.tsv",
+#         "--input", "/home/kangh/lab-server/SpliceDecoder/IsoForest",
+#         "--cano_tx", "ENSMUST00000169826.2",
+#         "--comp_tsv", "/home/kangh/lab-server/SpliceDecoder/IsoForest/comp.tsv",
 #         "-ri", "region",
 #     ]
 #     args, parser = parse_args(test_args)
@@ -75,8 +78,9 @@ def Run(key):
             _type_: _description_
         """
         
-        query_list = pd.read_csv(args.input+"query_list.txt",
-                                 sep="\t")
+        query_list = pd.read_csv(args.comp_tsv,
+                                 sep="\t",
+                                 header=None)
         query_list.columns = ["Major","query"]
         query_list = query_list[query_list["Major"]==key]   # Fix bug
         merged_bed = pd.read_csv(args.input+"merged.bed",
@@ -96,7 +100,7 @@ def Run(key):
         query["simStart"] = query["AUG (Ref-Sim)"].str.split("-").str[1]
         query["AUG (Ref-Sim)"] = query["AUG (Ref-Sim)"].str.split("-").str[0]
         query.columns = ["ID","query_tx","Start","STOP","dAA","Major_tx","ORF","delta L","DOA_types","pNMD","simSTOP","simStart"]
-        query["comp_pair"] = query["ID"]
+        # query["comp_pair"] = query["ID"]
         query[["simSTOP","STOP","Start","simStart"]] = query[["simSTOP","STOP","Start","simStart"]].astype(float)
         query = query[query['Major_tx']==args.cano_tx].copy()
 
@@ -328,7 +332,8 @@ def Run(key):
     test_list = query.iloc[:,0].unique()
     comp_pair = test_list[0].split("|")[0]
     test_list = query[query["Major_tx"].str.contains(args.cano_tx)]["query_tx"].unique()   # Using Canonical TX ID to extract target results
-    
+    # test_list = query[query["Reference_transcript"].str.contains(args.cano_tx)]["query_tx"].unique()   # Using Canonical TX ID to extract target results
+
     ## Remove Biding site in figures, it spends lots of space
     ## Capture target domains which are contained in target transcript
     # w_pfam = w_pfam[(w_pfam[4]!="binding")]
@@ -429,12 +434,12 @@ def Run(key):
                                     fontsize=10)
                             
                             value_dict = {"PTC removal":"NMD",
-                                        "NMD":"Intact",
-                                        "LoD":"GoD",
-                                        "GoD":"LoD",
-                                        "UTR_alt":"",
-                                        "CDS_alt":"",
-                                        "no_changes":"No Changes"} # BUG fix 25.01.27
+                                         "NMD":"Intact",
+                                         "LoD":"GoD",
+                                         "GoD":"LoD",
+                                         "UTR_alt":"",
+                                         "CDS_alt":"",
+                                          "no_changes":"No Changes"} # BUG fix 25.01.27
                             ref_axs.text(.96,.2,f"{value_dict[doa_types]}",
                                         fontsize=10, zorder=5,
                                         transform=ref_axs.transAxes)
