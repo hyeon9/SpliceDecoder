@@ -176,7 +176,8 @@ ref_cds = pd.read_csv(args.input+"merged_bestorf.txt",
 ref_bed = pd.read_csv(args.input+"merged.bed",
                       sep="\t", header=None)
 query_list = pd.read_csv(args.query_list,
-			 sep="\t")
+                         sep="\t",
+                         header=None)
 query_list.columns = ["Major","query"]
 
 OUT = args.input+"result/"
