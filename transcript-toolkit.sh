@@ -28,7 +28,7 @@ config=$2
 source ${config} 
 
 case ${input_var} in
-    Make_input)
+    Annotation)
 		## Prepare working dir
 		mkdir -p ${input}
 		cd ${input}
